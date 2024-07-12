@@ -14,6 +14,8 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg)
   [
     "veracrypt"
+    "steam"
+    "steam-original"
   ];
 
 #  services.tlp.enable = true;
@@ -25,6 +27,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+#  boot.plymouth.enable = false;
 
   networking.hostName = "HyperC"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -146,12 +149,17 @@
       signal-desktop
       kicad
       protonvpn-gui
-      fluffychat
       kotatogram-desktop
       vlc
       filezilla
       inkscape
       obs-studio
+      steam
+      iamb # Matrix CLI
+      element-desktop # Matrix GUI
+      dig
+      alacritty # Terminal
+      zed-editor # Editor
     ];
   };
 
@@ -161,16 +169,20 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    git # Add first because Flakes use git
     vim
     onboard
     libcamera
     wget
     file
-    git
     zulu
     squeekboard
     maliit-keyboard
+    gparted
   ];
+
+  # Set default Editor
+  programs.vim.defaultEditor = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

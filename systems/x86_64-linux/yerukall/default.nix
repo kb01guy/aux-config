@@ -19,6 +19,7 @@ in {
   imports =
     [
       ./hardware.nix
+      <home-manager/nixos>
     ];
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

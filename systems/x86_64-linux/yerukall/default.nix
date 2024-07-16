@@ -18,7 +18,7 @@ let
 in {
   imports =
   [
-    ./hardware.nix.
+    ./hardware.nix
 #    inputs.home-manager.nixosModules.home-manager
   ];
   

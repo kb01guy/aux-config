@@ -7,7 +7,8 @@
 with lib;
 with lib.internal;{
   snowfallorg.user.enable = true;
-  home.stateVersion = "24.05";
+  snowfallorg.user.name = "kb-work";
+#  home.stateVersion = "24.05";
 
 
   home.packages = with pkgs; [

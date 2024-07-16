@@ -19,7 +19,7 @@ in {
   imports =
   [
     ./hardware.nix.
-    inputs.home-manager.nixosModules.home-manager
+#    inputs.home-manager.nixosModules.home-manager
   ];
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -109,6 +109,17 @@ in {
     isNormalUser = true;
     description = "kb-work";
     extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      kate
+      thunderbird
+      keepassxc
+      globalprotect-openconnect
+      vscodium
+      logseq
+      ungoogled-chromium
+      zed-editor # Editor
+    ];
+
   };
 
   services.syncthing = {

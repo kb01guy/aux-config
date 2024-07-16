@@ -66,7 +66,7 @@ in {
   # Configure keymap
   services.xserver.xkb = {
     variant = "caps:swapescape";
-    layout = "dv2,de,us";
+    layout = "de,us,dv2";
     extraLayouts.dv2 = {
       description = "German Dvorak Type 2";
       languages = [ "de" ];

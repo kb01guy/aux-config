@@ -1,7 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 let
   lock-false = {
     Value = false;
@@ -18,7 +18,8 @@ let
 in {
   imports =
   [
-    ./hardware.nix
+    ./hardware.nix.
+    inputs.home-manager.nixosModules.home-manager
   ];
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

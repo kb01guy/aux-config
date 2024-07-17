@@ -118,6 +118,7 @@ in {
       logseq
       ungoogled-chromium
       zed-editor # Editor
+      gnupg
     ];
 
   };

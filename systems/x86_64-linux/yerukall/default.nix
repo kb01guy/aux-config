@@ -119,6 +119,7 @@ in {
       ungoogled-chromium
       zed-editor # Editor
       gnupg
+      pinentry
     ];
 
   };

@@ -118,8 +118,6 @@ in {
       logseq
       ungoogled-chromium
       zed-editor # Editor
-      gnupg
-      pinentry
     ];
 
   };
@@ -127,6 +125,12 @@ in {
   services.syncthing = {
     enable = true;
     configDir = "/home/kb-work/.config/syncthing";
+  };
+
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
   };
 
   programs.firefox = {

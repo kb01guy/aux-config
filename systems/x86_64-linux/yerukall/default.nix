@@ -130,7 +130,7 @@ in {
   services.pcscd.enable = true;
   programs.gnupg.agent = {
     enable = true;
-    pinentryPackage = pkgs.lib.mkForce "pinentry-qt";
+    pinentryPackage = pkgs.lib.mkForce pkgs.pinentry-qt;
   };
 
   programs.firefox = {

@@ -118,6 +118,13 @@ in {
       logseq
       ungoogled-chromium
       zed-editor # Editor
+      languagetool
+      syncthing
+      pysolfc
+      blender
+      prusa-slicer
+      kcalc
+      veracrypt
     ];
 
   };
@@ -126,6 +133,8 @@ in {
     enable = true;
     configDir = "/home/kb-work/.config/syncthing";
   };
+
+  services.languagetool.enable = true;
 
   services.pcscd.enable = true;
   programs.gnupg.agent = {

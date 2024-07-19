@@ -134,7 +134,10 @@ in {
     configDir = "/home/kb-work/.config/syncthing";
   };
 
-  services.languagetool.enable = true;
+  services.languagetool = {
+    enable = true;
+    allowOrigin = "*";
+  };
 
   services.pcscd.enable = true;
   programs.gnupg.agent = {

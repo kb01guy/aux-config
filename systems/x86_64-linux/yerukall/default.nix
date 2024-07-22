@@ -125,6 +125,7 @@ in {
       prusa-slicer
       kcalc
       veracrypt
+      zoom-us
     ];
 
   };

@@ -126,6 +126,7 @@ in {
       kcalc
       veracrypt
       zoom-us
+      virtualbox
     ];
 
   };

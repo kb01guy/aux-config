@@ -341,7 +341,7 @@ in {
     csdWrapper = "${pkgs.openconnect}/libexec/openconnect/hipreport.sh";
   };
 
-  virtualization.virtualbox.host = {
+  virtualisation.virtualbox.host = {
     enable = true;
     enableKvm = true;
   };

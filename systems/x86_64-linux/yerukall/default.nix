@@ -330,10 +330,14 @@ in {
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  services.globalprotect.settings = {
-    "vpn.ohmportal.de" = {
-      openconnect-args = "--protocol gp --disable-ipv6";
+  services.globalprotect = {
+    enable = true;
+    settings = {
+      "vpn.ohmportal.de" = {
+        openconnect-args = "--protocol gp --disable-ipv6 --mtu=1284 --force-dpd=30 ";
+      };
     };
+    csdWrapper = "${pkgs.openconnect}/libexec/openconnect/hipreport.sh";
   };
 
   # Open ports in the firewall.

@@ -108,7 +108,7 @@ in {
   users.users.kb-work = {
     isNormalUser = true;
     description = "kb-work";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "vboxusers" "networkmanager" "wheel" ];
     packages = with pkgs; [
       kate
       thunderbird
@@ -339,6 +339,11 @@ in {
       };
     };
     csdWrapper = "${pkgs.openconnect}/libexec/openconnect/hipreport.sh";
+  };
+
+  virtualization.virtualbox.host = {
+    enable = true;
+    enableKvm = true;
   };
 
   # Open ports in the firewall.

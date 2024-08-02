@@ -127,6 +127,7 @@ in {
       veracrypt
       zoom-us
       virtualbox
+      protonvpn-gui
     ];
 
   };

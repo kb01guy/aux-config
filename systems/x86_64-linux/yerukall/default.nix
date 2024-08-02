@@ -147,6 +147,8 @@ in {
     pinentryPackage = pkgs.lib.mkForce pkgs.pinentry-qt;
   };
 
+  programs.virt-manager.enable = true;
+
   programs.firefox = {
     enable = true;
     nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];

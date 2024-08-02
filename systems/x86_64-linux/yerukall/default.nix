@@ -349,6 +349,7 @@ in {
     enableHardening = false; # Incompatible with KVM
     addNetworkInterface = false; # Incompatible with KVM
   };
+  virtualisation.libvirtd.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

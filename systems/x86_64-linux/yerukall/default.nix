@@ -129,6 +129,7 @@ in {
       virtualbox
       protonvpn-gui
       tidal-hifi
+      gimp
     ];
 
   };

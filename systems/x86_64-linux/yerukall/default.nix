@@ -145,6 +145,11 @@ in {
     allowOrigin = "*";
   };
 
+  services.samba = {
+    enable = true;
+    openFirewall = true;
+  };
+
   services.pcscd.enable = true;
   programs.gnupg.agent = {
 #    enable = true;

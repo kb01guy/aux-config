@@ -128,6 +128,7 @@ in {
       zoom-us
       virtualbox
       protonvpn-gui
+      tidal-hifi
     ];
 
   };

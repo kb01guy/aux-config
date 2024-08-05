@@ -130,6 +130,7 @@ in {
       protonvpn-gui
       tidal-hifi
       gimp
+      libreoffice
     ];
 
   };

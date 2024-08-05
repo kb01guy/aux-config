@@ -145,11 +145,6 @@ in {
     allowOrigin = "*";
   };
 
-  services.samba = {
-    enable = true;
-    openFirewall = true;
-  };
-
   services.pcscd.enable = true;
   programs.gnupg.agent = {
 #    enable = true;
@@ -318,6 +313,7 @@ in {
     firefoxpwa
     gnupg
     pinentry-qt
+    cifs-utils # Needed to access SMB Shares
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

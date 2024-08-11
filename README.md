@@ -46,6 +46,15 @@ Cpu: AMD Ryzen 5 5625U
 
 Ram: 16GB
 
+### voloxo
+My Gaming Desktop
+
+Cpu: AMD Ryzen 5 5600X
+
+Ram: 32GB
+
+Gpu: NVIDIA GeForce GTX 1070
+
 ## License
 
 [MIT © kB01](../LICENSE)

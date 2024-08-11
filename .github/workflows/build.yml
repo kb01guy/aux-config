@@ -8,6 +8,8 @@ jobs:
     name: Build NixOS Iso
     steps:
       - name: Update Nix Store
-        run: nix-store --update
+        run: | 
+          nix-channel --update
       - name: Get System Info
-        run: nix-shell -p fastfetch --run "fastfetch"
+        run: | 
+          nix-shell -p fastfetch --run "fastfetch"

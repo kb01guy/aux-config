@@ -11,4 +11,5 @@ jobs:
         uses: actions/checkout@v4
       - run: echo /home/runner/externals/node20/bin >> $GITHUB_PATH
       - name: Get System Info
-        run: nix-shell -p fastfetch --run "fastfetch" >> $GITHUB_PATH
+        run: |
+            nix-shell -p fastfetch --run "fastfetch"

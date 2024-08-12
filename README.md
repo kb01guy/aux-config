@@ -39,14 +39,14 @@ Cpu: Intel i5-7300U
 
 Ram: 8GB
 
-### yerukall
+### [yerukall](.systems/x86_64-linux/yerukall)
 Lenovo Thinkpad E14 Gen 4
 
 Cpu: AMD Ryzen 5 5625U
 
 Ram: 16GB
 
-### voloxo
+### [voloxo](.systems/x86_64-linux/voloxo)
 My Gaming Desktop
 
 Cpu: AMD Ryzen 5 5600X

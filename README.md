@@ -32,7 +32,7 @@ Now When you want to change your System, you ...
 
 ## Hosts
 
-### HyperC
+### [HyperC](./systems/x86_64-linux/HyperC)
 Surface Pro 2017 Tablet
 
 Cpu: Intel i5-7300U

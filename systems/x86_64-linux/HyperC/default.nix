@@ -11,6 +11,9 @@
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.permittedInsecurePackages = [
+                "electron-27.3.11"
+              ];
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg)
   [
     "veracrypt"
@@ -184,7 +187,10 @@
   ];
 
   # Set default Editor
-  programs.vim.defaultEditor = true;
+  programs.vim = {
+    enable = true;
+    defaultEditor = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -204,7 +210,7 @@
     dataDir = "/home/kb";
     configDir = "/home/kb/.config/syncthing";
   };
-  services.transmission.settings = {
+  services.transmission_3.settings = {
     download-dir = "${config.services.transmission.home}/Torrents";
   };
   # Enable the OpenSSH daemon.

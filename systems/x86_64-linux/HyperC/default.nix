@@ -126,7 +126,7 @@
       vim
       filelight
       taxi
-      transmission
+      transmission_3
       transmission-remote-gtk
       bookworm
       foliate
@@ -210,7 +210,7 @@
     dataDir = "/home/kb";
     configDir = "/home/kb/.config/syncthing";
   };
-  services.transmission_3.settings = {
+  services.transmission.settings = {
     download-dir = "${config.services.transmission.home}/Torrents";
   };
   # Enable the OpenSSH daemon.

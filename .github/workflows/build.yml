@@ -12,4 +12,4 @@ jobs:
           nix-channel --update
       - name: Get System Info
         run: | 
-          nix-shell -p fastfetch --run "fastfetch"
+          nix-shell -p fastfetch --run fastfetch

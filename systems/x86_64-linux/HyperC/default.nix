@@ -134,7 +134,7 @@
       xournalpp
       xournal
       rnote
-      mypaint
+      #mypaint
       firefox
       vim
       filelight

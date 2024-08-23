@@ -108,6 +108,19 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.schlossrave = {
+    isNormalUser = true;
+    description = "schlossrave Service Account";
+    extraGroups = [ "networkmanager" ];
+    packages = with pkgs; [
+      kdePackages.kate
+      fastfetch
+      btop
+      firefox
+      qlcplus
+      dig
+    ];
+  };
   users.users.kb = {
     isNormalUser = true;
     description = "kb";

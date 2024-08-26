@@ -348,12 +348,12 @@ in {
     csdWrapper = "${pkgs.openconnect}/libexec/openconnect/hipreport.sh";
   };
 
-  virtualisation.virtualbox.host = {
-    enable = true;
-    enableKvm = true;
-    enableHardening = false; # Incompatible with KVM
-    addNetworkInterface = false; # Incompatible with KVM
-  };
+#  virtualisation.virtualbox.host = {
+#    enable = true;
+#    enableKvm = true;
+#    enableHardening = false; # Incompatible with KVM
+#    addNetworkInterface = false; # Incompatible with KVM
+#  };
   virtualisation.libvirtd.enable = true;
 
   # Open ports in the firewall.

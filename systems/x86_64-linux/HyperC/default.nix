@@ -11,6 +11,9 @@
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.permittedInsecurePackages = [
+                "electron-27.3.11"
+              ];
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg)
   [
     "veracrypt"
@@ -105,6 +108,19 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.schlossrave = {
+    isNormalUser = true;
+    description = "schlossrave Service Account";
+    extraGroups = [ "networkmanager" ];
+    packages = with pkgs; [
+      kdePackages.kate
+      fastfetch
+      btop
+      firefox
+      qlcplus
+      dig
+    ];
+  };
   users.users.kb = {
     isNormalUser = true;
     description = "kb";
@@ -123,7 +139,7 @@
       vim
       filelight
       taxi
-      transmission
+      transmission_3
       transmission-remote-gtk
       bookworm
       foliate
@@ -166,6 +182,8 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  programs.kdeconnect.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -182,7 +200,10 @@
   ];
 
   # Set default Editor
-  programs.vim.defaultEditor = true;
+  programs.vim = {
+    enable = true;
+    defaultEditor = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

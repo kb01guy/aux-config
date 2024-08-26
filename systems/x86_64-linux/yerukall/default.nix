@@ -136,6 +136,8 @@ in {
 
   services.syncthing = {
     enable = true;
+    user = "kb-work";
+    dataDir = "/home/kb-work";
     configDir = "/home/kb-work/.config/syncthing";
   };
 

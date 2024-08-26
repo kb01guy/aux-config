@@ -23,9 +23,6 @@ in {
   ];
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-27.3.11"
-  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -297,6 +294,7 @@ in {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
     "electron-28.3.3"
+    "electron-27.3.11"
   ];
 
   # List packages installed in system profile. To search, run:

@@ -23,6 +23,9 @@ in {
   ];
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-27.3.11"
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

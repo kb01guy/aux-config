@@ -134,7 +134,7 @@
       xournalpp
       xournal
       rnote
-      #mypaint
+      mypaint
       firefox
       vim
       filelight
@@ -171,7 +171,7 @@
       inkscape
       obs-studio
       steam
-      #iamb # Matrix CLI
+      iamb # Matrix CLI
       element-desktop # Matrix GUI
       dig
       alacritty # Terminal

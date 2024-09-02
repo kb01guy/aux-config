@@ -161,6 +161,7 @@
       ryujinx
       razergenie
       webcord
+      mangohud
     ];
   };
   

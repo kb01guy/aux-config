@@ -164,7 +164,7 @@
       mangohud
       vscodium
       pass-wayland
-      gpg
+      gnupg
       kdePackages.kcalc
       
     ];

@@ -1,0 +1,7 @@
+keys:
+  - &kbwork_yerukall CEFAA4772EBDE0F5CFD1D1B3ED7E4FF32820BDE8
+creation_rules:
+  - path_regex: secrets/secrets.yaml$
+    key_groups:
+    - pgp:
+      - *kbwork_yerukall

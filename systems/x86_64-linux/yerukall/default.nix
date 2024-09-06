@@ -19,10 +19,17 @@ in {
   imports =
   [
     ./hardware.nix
+    inputs.sops-nix.nixosModules.sops
 #    inputs.home-manager.nixosModules.home-manager
   ];
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Configure Secret Management
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+  sops.secrets.example-key = {};
+  sops.secrets."myservice/my_subdir/my_secret" = {};
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -130,6 +137,7 @@ in {
       tidal-hifi
       gimp
       libreoffice
+      sops # Secret Management
     ];
 
   };

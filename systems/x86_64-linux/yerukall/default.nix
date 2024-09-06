@@ -28,6 +28,7 @@ in {
   # Configure Secret Management
   sops.defaultSopsFile = ./secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
+  sops.age.keyFile = "/home/user/.config/sops/age/keys.txt";
   sops.secrets.example-key = {};
   sops.secrets."myservice/my_subdir/my_secret" = {};
 

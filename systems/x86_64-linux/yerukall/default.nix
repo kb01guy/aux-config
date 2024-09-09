@@ -115,7 +115,7 @@ in {
   users.users.kb-work = {
     isNormalUser = true;
     description = "kb-work";
-    extraGroups = [ "vboxusers" "networkmanager" "wheel" ];
+    extraGroups = [ "vboxusers" "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       kate
       thunderbird
@@ -325,6 +325,7 @@ in {
     gnupg
     pinentry-qt
     cifs-utils # Needed to access SMB Shares
+    docker-compose
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -359,6 +360,7 @@ in {
     csdWrapper = "${pkgs.openconnect}/libexec/openconnect/hipreport.sh";
   };
 
+  virtualisation.docker.enable = true;
 #  virtualisation.virtualbox.host = {
 #    enable = true;
 #    enableKvm = true;

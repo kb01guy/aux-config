@@ -161,6 +161,7 @@
       ryujinx
       razergenie
       webcord
+      mangohud
     ];
   };
   
@@ -179,6 +180,7 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11"
+    "olm-3.2.16"
   ];
 
   programs.vim = {

@@ -1,7 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs,... }:
 let
   lock-false = {
     Value = false;
@@ -19,10 +19,18 @@ in {
   imports =
   [
     ./hardware.nix
+    inputs.sops-nix.nixosModules.sops
 #    inputs.home-manager.nixosModules.home-manager
   ];
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Configure Secret Management
+  sops.defaultSopsFile = ./secrets/secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+  sops.age.keyFile = "/home/kb-work/.config/sops/age/keys.txt";
+  sops.secrets.example-key = {};
+  sops.secrets."myservice/my_subdir/my_secret" = {};
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -130,6 +138,7 @@ in {
       tidal-hifi
       gimp
       libreoffice
+      sops # Secret Management
     ];
 
   };

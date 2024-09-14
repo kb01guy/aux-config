@@ -1,0 +1,10 @@
+keys:
+  - &kbwork_yerukall CEFAA4772EBDE0F5CFD1D1B3ED7E4FF32820BDE8
+  - &kbwork_yerukall2 age1lyv48cuxvnwp4ykugw57zjl728pn2tvss6486n9avgvw6uqj3ydqddkrmu
+creation_rules:
+  - path_regex: systems/x86_64-linux/yerukall/secrets/secrets.yaml$
+    key_groups:
+    - pgp:
+      - *kbwork_yerukall
+      age:
+      - *kbwork_yerukall2

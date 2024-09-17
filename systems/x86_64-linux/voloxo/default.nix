@@ -162,6 +162,11 @@
       razergenie
       webcord
       mangohud
+      vscodium
+      pass-wayland
+      gnupg
+      kdePackages.kcalc
+      
     ];
   };
   

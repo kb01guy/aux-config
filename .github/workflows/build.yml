@@ -7,12 +7,6 @@ jobs:
       image: ghcr.io/lix-project/lix:latest
     name: "Check NixOS Configuration"
     steps:
-      - name: "Install Node.JS Workarround, see https://github.com/nektos/act/issues/973"
-        run: |
-          curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
-          apt install -y nodejs
-          node --version
-
       - name: "Checkout"
         uses: actions/checkout@v3
 

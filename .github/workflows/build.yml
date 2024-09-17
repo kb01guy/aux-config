@@ -7,11 +7,10 @@ jobs:
       image: ghcr.io/lix-project/lix:latest
     name: "Check NixOS Configuration"
     steps:
-      - name: "Install Node.JS Workarround, see https://github.com/nektos/act/issues/973"
-        run: nix-shell -p nodejs
-
-      - name: "Checkout"
-        uses: actions/checkout@v3
+      - name: "Git Clone"
+        run: |
+          git clone https://git.kb-one.de/kb01/aux-config
+          cd aux-config
 
       - name: "Check evaluation"
         run: nix flake check --no-build --all-systems

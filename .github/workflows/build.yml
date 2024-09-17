@@ -13,10 +13,10 @@ jobs:
           cd aux-config
 
       - name: "Check evaluation"
-        run: nix flake check --no-build --all-systems
+        run: nix flake check --no-build --all-systems --extra-experimental-features nix-command
 
       - name: "Do linting"
-        run: nix run nixpkgs#statix -- check .
+        run: nix run nixpkgs#statix -- check . --extra-experimental-features nix-command
 
       - name: "Check formatting"
-        run: nix fmt -- --fail-on-change
+        run: nix fmt -- --fail-on-change --extra-experimental-features nix-command

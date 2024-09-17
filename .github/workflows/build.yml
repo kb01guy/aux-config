@@ -10,6 +10,9 @@ jobs:
       - name: "Git Clone"
         run: git clone https://git.kb-one.de/kb01/aux-config .
 
+      - name: "Nix Flake Update"
+        run: nix flake update --experimental-features 'nix-command flakes'
+
       - name: "Check evaluation"
         run: nix flake check --no-build --all-systems --experimental-features 'nix-command flakes'
 

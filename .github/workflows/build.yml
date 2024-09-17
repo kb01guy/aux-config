@@ -9,8 +9,7 @@ jobs:
     steps:
       - name: "Git Clone"
         run: |
-          git clone https://git.kb-one.de/kb01/aux-config
-          cd aux-config
+          git clone https://git.kb-one.de/kb01/aux-config .
           ls -la
 
       - name: "Check evaluation"

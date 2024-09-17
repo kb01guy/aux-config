@@ -8,9 +8,7 @@ jobs:
     name: "Check NixOS Configuration"
     steps:
       - name: "Git Clone"
-        run: |
-          git clone https://git.kb-one.de/kb01/aux-config .
-          ls -la
+        run: git clone https://git.kb-one.de/kb01/aux-config .
 
       - name: "Check evaluation"
         run: nix flake check --no-build --all-systems --experimental-features 'nix-command flakes'

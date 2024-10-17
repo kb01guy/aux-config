@@ -151,7 +151,7 @@
       logseq
       signal-desktop
       kid3
-      calibre
+      #calibre
       spotify-player
       tidal-hifi
       iamb # Matrix with Vim-Binds

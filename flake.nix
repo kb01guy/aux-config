@@ -1,48 +1,39 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nix-data = {
-      url = "github:snowflakelinux/nix-data";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    snowfall-lib = {
-      url = "github:snowfallorg/lib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    snowflakeos-modules.url = "github:snowflakelinux/snowflakeos-modules";
-    nixos-hardware.url = "github:nixos/nixos-hardware/master";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    snowfall-lib.url = "github:snowfallorg/lib";
+    snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-1.tar.gz";
+    lix-module.inputs.nixpkgs.follows = "nixpkgs";
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs:
-    inputs.snowfall-lib.mkFlake {
-      inherit inputs;
-      src = ./.;
+  outputs = inputs: inputs.snowfall-lib.mkFlake {
+    inherit inputs;
+    src = ./.;
 
-      channels-config.allowUnfree = false;
-      systems.modules.nixos = with inputs; [
-        nix-data.nixosModules.nix-data
-#        snowflakeos-modules.nixosModules.efiboot
-#        snowflakeos-modules.nixosModules.gnome
-#        snowflakeos-modules.nixosModules.kernel
-#        snowflakeos-modules.nixosModules.networking
-#        snowflakeos-modules.nixosModules.packagemanagers
-#        snowflakeos-modules.nixosModules.pipewire
-#        snowflakeos-modules.nixosModules.printing
-#        snowflakeos-modules.nixosModules.snowflakeos
-#        snowflakeos-modules.nixosModules.metadata
-      ];
-#      nixosConfigurations.HyperC = nixpkgs.lib.nixosSystem {
-#        modules = [
-          # add your model from this list: https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
-#          nixos-hardware.nixosModules.microsoft-surface-pro-intel
-#        ];
-#      };
+    channels-config.allowUnfree = false;
+
+    nix.gc = {
+      automatic = true;
+      options = "--delete-older-than 30d";
     };
+    nix.optimise.automatic = true;
+
+    # Modules for Host kb-games-01
+    systems.hosts.voloxo.modules = with inputs; [
+    ];
+
+    # Modules that get imported to every NixOS system
+    systems.modules.nixos = with inputs; [
+      lix-module.nixosModules.default
+    ];
+
+    outputs-builder = channels: { formatter = channels.nixpkgs.nixfmt-rfc-style; };
+
+  };
 }
 

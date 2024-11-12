@@ -1,35 +1,19 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{
-    # Snowfall Lib provides a customized `lib` instance with access to your flake's library
-    # as well as the libraries available from your flake's inputs.
-    lib,
-    # An instance of `pkgs` with your overlays and packages applied is also available.
-    pkgs,
-    # You also have access to your flake's inputs.
-    inputs,
-
-    # Additional metadata is provided by Snowfall Lib.
-    namespace, # The namespace used for your flake, defaulting to "internal" if not set.
-    system, # The system architecture for this host (eg. `x86_64-linux`).
-    target, # The Snowfall Lib target for this system (eg. `x86_64-iso`).
-    format, # A normalized name for the system target (eg. `iso`).
-    virtual, # A boolean to determine whether this system is a virtual target using nixos-generators.
-    systems, # An attribute map of your defined hosts.
-
-    # All other arguments come from the system system.
-    config,
-    ...
-}:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware.nix
-#      ./modules.nix
     ];
+
+  # Configure Nix
+  nix.package = pkgs.lix;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-27.3.11"
+    "olm-3.2.16"
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -66,8 +50,7 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Experimental Features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
 
   # Nvidia Configuration
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
@@ -116,10 +99,6 @@
     #media-session.enable = true;
   };
 
-  services.onlyoffice = {
-    enable = true;
-  };
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -134,7 +113,7 @@
       thunderbird
       cheese
       obs-studio
-      blender
+      # blender
       syncthing
       keepassxc
       freetube
@@ -181,12 +160,6 @@
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "kb";
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-27.3.11"
-    "olm-3.2.16"
-  ];
 
   programs.vim = {
     enable = true;

@@ -20,14 +20,18 @@ hostname
 ```
 <details>
   <summary>Hostname does not Match (click to expand)</summary>
+
   Install NixOS on the current system with forced hostname.
+
   ```bash
   cd ~/Project/aux-config
   sudo nixos-rebuild switch --flake .#voloxo
   ```
+
   > **Warning**
   > 
   > This will change the Hostname of your System to voloxo!
+
 </details>
 
 Install NixOS for your current Hostname.

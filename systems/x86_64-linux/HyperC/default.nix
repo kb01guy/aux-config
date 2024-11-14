@@ -10,6 +10,8 @@
       ./hardware.nix
     ];
 
+  # Configure Nix
+  nix.package = pkgs.lix;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.permittedInsecurePackages = [
                 "electron-27.3.11"
@@ -19,6 +21,7 @@
     "veracrypt"
     "steam"
     "steam-original"
+    "steam-unwrapped"
   ];
 
 #  services.tlp.enable = true;
@@ -130,11 +133,10 @@
       fastfetch
       btop
       testdisk
-      neofetch
       xournalpp
       xournal
       rnote
-      mypaint
+      #mypaint
       firefox
       vim
       filelight
@@ -165,7 +167,7 @@
       signal-desktop
       kicad
       protonvpn-gui
-      kotatogram-desktop
+      telegram-desktop
       vlc
       filezilla
       inkscape

@@ -23,8 +23,12 @@
     };
     nix.optimise.automatic = true;
 
-    # Modules for Host kb-games-01
+    # Modules for Host voloxo
     systems.hosts.voloxo.modules = with inputs; [
+    ];
+
+    # Modules for Host kb-games-01
+    systems.hosts.kb-games-01.modules = with inputs; [
     ];
 
     # Modules that get imported to every NixOS system

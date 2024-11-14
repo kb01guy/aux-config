@@ -59,7 +59,7 @@ Cpu: Intel i5-7300U
 
 Ram: 8GB
 
-### [voloxo](.systems/x86_64-linux/voloxo)
+### [voloxo](./systems/x86_64-linux/voloxo)
 My Gaming Desktop
 
 Cpu: AMD Ryzen 5 5600X
@@ -68,7 +68,7 @@ Ram: 32GB
 
 Gpu: NVIDIA GeForce GTX 1070
 
-### [kb-games-01](.systems/x86_64-linux/kb-games-01)
+### [kb-games-01](./systems/x86_64-linux/kb-games-01)
 My KVM Server for Gameservers
 
 Cpu: AMD EPYC 7702P 64-Core (4 Cores)

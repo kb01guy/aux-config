@@ -19,7 +19,7 @@ in
       enable = true;
       autoStart = true;
       enableReload = true;
-      package = pkgs.paperServers.vanilla-1.21.3;
+      package = pkgs.paperServers.vanilla-1.21.1;
       whitelist = {
         kB01guy = "1ff88b66-beda-4386-85b9-a00a5c27437a";
       };

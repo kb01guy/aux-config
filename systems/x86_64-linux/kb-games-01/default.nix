@@ -7,6 +7,10 @@
 
   # Configure Nix
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "remotebuild" ]; # UNSAVE, Remove ASAP
+  nix.settings.trusted-public-keys = [
+    "cache.HyperC:90YNJ0eWsuBGVVP989lJh1rL8C0KM6IKbAtEUiu+FCU="
+  ];
   nix.package = pkgs.lix;
   nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
 
@@ -40,6 +44,13 @@
     ];
   };
 
+  users.users.remotebuild = {
+    isNormalUser = true;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBHdxVb42GEb/rwrsQx/Wc2v2P+WIq8/WNlF+l31Rl/a Remotebuilds from HyperC"
+    ];
+  };
+
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
     vim
@@ -62,6 +73,11 @@
     enable = true;
     servers.vanilla.enable = false;
     servers.survival.enable = true;
+  };
+
+  services.nix-serve = {
+    enable = true;
+    secretKeyFile = "/var/cache-kb-games-01-priv-key.pem";
   };
 
   # Do NOT change this value 

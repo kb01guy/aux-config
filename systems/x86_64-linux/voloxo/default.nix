@@ -14,6 +14,11 @@
     "electron-27.3.11"
     "olm-3.2.16"
   ];
+  nix.settings.trusted-users = [ "remotebuild" ]; # UNSAVE, Remove ASAP
+  nix.settings.trusted-public-keys = [
+    "cache.HyperC:90YNJ0eWsuBGVVP989lJh1rL8C0KM6IKbAtEUiu+FCU="
+  ];
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -148,6 +153,13 @@
       
     ];
   };
+
+  users.users.remotebuild = {
+    isNormalUser = true;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBHdxVb42GEb/rwrsQx/Wc2v2P+WIq8/WNlF+l31Rl/a Remotebuilds from HyperC"
+    ];
+  };
   
   # Define Service Users
   users.groups.languagetool = {};
@@ -250,22 +262,12 @@
 	    configDir = "/home/kb/.config/syncthing";
 	  };
 
+  services.nix-serve = {
+    enable = true;
+    secretKeyFile = "/var/cache-voloxo-priv-key.pem";
+  };
 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  # Do NOT change this value
   system.stateVersion = "23.05"; # Did you read the comment?
 
 }

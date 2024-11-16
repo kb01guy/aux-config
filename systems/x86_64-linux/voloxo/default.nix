@@ -260,7 +260,16 @@
 	    user = "kb";
 	    dataDir = "/home/kb/sync";
 	    configDir = "/home/kb/.config/syncthing";
-	  };
+  };
+
+  # SSH
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+    ports = [ 4125 ];
+    openFirewall = true;
+  };
 
   services.nix-serve = {
     enable = true;

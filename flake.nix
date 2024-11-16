@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     snowfall-lib.url = "github:snowfallorg/lib";
     snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
@@ -22,6 +23,10 @@
       options = "--delete-older-than 30d";
     };
     nix.optimise.automatic = true;
+
+    # Modules for Host HyperC
+    systems.hosts.HyperC.modules = with inputs; [
+    ];
 
     # Modules for Host voloxo
     systems.hosts.voloxo.modules = with inputs; [

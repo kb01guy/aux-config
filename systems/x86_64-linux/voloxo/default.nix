@@ -14,7 +14,6 @@
     "electron-27.3.11"
     "olm-3.2.16"
   ];
-  nix.settings.trusted-users = [ "remotebuild" ]; # UNSAVE, Remove ASAP
   nix.settings.trusted-public-keys = [
     "cache.HyperC:90YNJ0eWsuBGVVP989lJh1rL8C0KM6IKbAtEUiu+FCU="
   ];

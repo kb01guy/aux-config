@@ -24,6 +24,31 @@
     "steam-unwrapped"
   ];
 
+  # Configure Remote Builds
+  nix.settings.trusted-public-keys = [
+    "cache.kb-games-01:Y9lGS9lw+grILNY+Mmw498mMoBQcYE+OqTpOHBAOajw="
+  ];
+  nix.distributedBuilds = true;
+  nix.buildMachines = [
+    {
+      hostName = "kb-games-01-remotebuild";
+      system = "x86_64-linux";
+      maxJobs = 4;
+      speedFactor = 2;
+      supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+      mandatoryFeatures = [ "big-parallel" ];
+    }
+    {
+      hostName = "voloxo-remotebuild";
+      system = "x86_64-linux";
+      maxJobs = 6;
+      speedFactor = 6;
+      supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+      mandatoryFeatures = [ "big-parallel" ];
+
+    }
+  ];
+
 #  services.tlp.enable = true;
   powerManagement.cpufreq.max = 3500000;
 #  powerManagement.cpufreq.min =  400000;
@@ -228,21 +253,13 @@
   services.transmission.settings = {
     download-dir = "${config.services.transmission.home}/Torrents";
   };
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  services.nix-serve = {
+    enable = true;
+    secretKeyFile = "/var/cache-HyperC-priv-key.pem";
+  };
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+
   system.stateVersion = "24.05"; # Did you read the comment?
 
 }

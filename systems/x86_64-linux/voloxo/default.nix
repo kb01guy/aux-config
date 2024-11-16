@@ -157,7 +157,7 @@
   users.users.remotebuild = {
     isNormalUser = true;
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBHdxVb42GEb/rwrsQx/Wc2v2P+WIq8/WNlF+l31Rl/a Remotebuilds from HyperC"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID8CBRiViR+JVFHEeeUbeHLY4gCvZ1TTlt63HlBD8xls Remotebuilds from HyperC"
     ];
   };
   

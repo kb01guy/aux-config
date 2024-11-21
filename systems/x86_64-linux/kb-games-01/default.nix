@@ -34,6 +34,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKLbU0GpeqkYOsccsddQgZAppd5SFiokGAfjKr+dEEjY kb HyperC"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHS3DoQe/4TtdTLD/Fl41rTjE0n5MyFMl59VGVejcskO kb voloxo"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPpN/3esM0SFLJ2guCBOYX8IdBC+jUiMF+xPYkTEuzbe kb-work yerukall"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMN1LWMOfFtRKkSLIA/XTj3KYm7OG2bjqEmGXj0gmDc7 kb@LoyAdjo"
     ];
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.

@@ -7,6 +7,7 @@
 
   # Configure Nix
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users=[ "remotebuild" ];
   nix.settings.trusted-public-keys = [
     "cache.HyperC:90YNJ0eWsuBGVVP989lJh1rL8C0KM6IKbAtEUiu+FCU="
   ];

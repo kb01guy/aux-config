@@ -14,8 +14,8 @@
   nix.package = pkgs.lix;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.permittedInsecurePackages = [
-                "electron-27.3.11"
-              ];
+    "electron-27.3.11"
+  ];
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg)
   [
     "veracrypt"
@@ -38,15 +38,14 @@
       supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
       mandatoryFeatures = [ "big-parallel" ];
     }
-    {
-      hostName = "voloxo-remotebuild";
-      system = "x86_64-linux";
-      maxJobs = 6;
-      speedFactor = 6;
-      supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-      mandatoryFeatures = [ "big-parallel" ];
-
-    }
+    # {
+    #   hostName = "voloxo-remotebuild";
+    #   system = "x86_64-linux";
+    #   maxJobs = 6;
+    #   speedFactor = 6;
+    #   supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+    #   mandatoryFeatures = [ "big-parallel" ];
+    # }
   ];
 
 #  services.tlp.enable = true;
@@ -61,13 +60,6 @@
 #  boot.plymouth.enable = false;
 
   networking.hostName = "HyperC"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
   networking.networkmanager.enable = true;
 
   # Set your time zone.
@@ -124,92 +116,13 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.schlossrave = {
-    isNormalUser = true;
-    description = "schlossrave Service Account";
-    extraGroups = [ "networkmanager" ];
-    packages = with pkgs; [
-      kdePackages.kate
-      fastfetch
-      btop
-      firefox
-      qlcplus
-      dig
-    ];
-  };
-  users.users.kb = {
+  users.users.kb = { # Managed via Home-Manager
     isNormalUser = true;
     description = "kb";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-      fastfetch
-      btop
-      testdisk
-      xournalpp
-      xournal
-      rnote
-      #mypaint
-      firefox
-      vim
-      filelight
-      taxi
-      transmission_3
-      transmission-remote-gtk
-      bookworm
-      foliate
-      filelight
-      micropython
-      mpy-utils
-      logseq
-      keepassxc
-      terminator
-      thunderbird
-      blender
-      prismlauncher
-      prusa-slicer
-      xorg.xkbcomp
-      krita
-      veracrypt
-      libreoffice-qt
-      hunspell
-      hunspellDicts.de_DE
-      hunspellDicts.en_US
-      languagetool
-      freetube
-      signal-desktop
-      kicad
-      protonvpn-gui
-      telegram-desktop
-      vlc
-      filezilla
-      inkscape
-      obs-studio
-      steam
-      iamb # Matrix CLI
-      element-desktop # Matrix GUI
-      dig
-      alacritty # Terminal
-      zed-editor # Editor
-    ];
   };
-
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  programs.kdeconnect.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -232,24 +145,9 @@
     defaultEditor = true;
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs.firefox.nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
   programs.ssh.startAgent = true;
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
-
-  services.syncthing = {
-    enable = true;
-    user = "kb";
-    dataDir = "/home/kb";
-    configDir = "/home/kb/.config/syncthing";
-  };
   services.transmission.settings = {
     download-dir = "${config.services.transmission.home}/Torrents";
   };
@@ -258,7 +156,6 @@
     enable = true;
     secretKeyFile = "/var/cache-HyperC-priv-key.pem";
   };
-
 
   system.stateVersion = "24.05"; # Did you read the comment?
 

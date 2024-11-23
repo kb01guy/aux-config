@@ -72,7 +72,7 @@
   # Minecraft Servers
   services.minecraft = {
     enable = true;
-    servers.vanilla.enable = false;
+    servers.velocity.enable = true;
     servers.survival.enable = true;
   };
 

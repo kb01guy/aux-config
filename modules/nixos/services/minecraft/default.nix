@@ -7,6 +7,7 @@ in
     inputs.nix-minecraft.nixosModules.minecraft-servers
     ./vanilla-test.nix
     ./survival.nix
+    ./velocity.nix
   ];
 
   options.services.minecraft = {
@@ -24,6 +25,11 @@ in
       type = with lib.types; uniq bool;
       default = false;
       description = "Survival Server";
+    };
+    servers.velocity.enable = lib.mkOption {
+      type = with lib.types; uniq bool;
+      default = false;
+      description = "Velocity Proxy Server";
     };
   };
 

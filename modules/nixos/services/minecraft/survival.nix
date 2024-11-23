@@ -23,7 +23,13 @@ in
       whitelist = {
         kB01guy = "1ff88b66-beda-4386-85b9-a00a5c27437a";
       };
-      openFirewall = true;
+      serverProperties = {
+        difficulty = 3;
+        gamemode = 1;
+        max-players = 5;
+      };
+      openFirewall = false; # Should use Velocity Player Proxy
+      serverProperties.server-port = 41000;
       symlinks = {
         "plugins/LuckPerms.jar" = pkgs.fetchurl { url = "https://download.luckperms.net/1561/bukkit/loader/LuckPerms-Bukkit-5.4.146.jar"; sha512 = "3yx163xas6g30crj41ad8j9gh55ygfh7vbaq12hlm4rxf1npnxh95rhn2nx0qcjd4nl1rz8f8pbvmlh6ka32ahvn6x9rxsc8g6v24jz"; };
       };

@@ -60,6 +60,9 @@ in {
     ryujinx # Experimental Nitendo Switch Emulator
     mangohud
     prismlauncher
+    # Terminal Tools
+    btop
+    fastfetch
   ];
 
   services.syncthing.enable = true;

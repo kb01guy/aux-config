@@ -11,7 +11,7 @@ This repository contains my Flake based NixOS Configuration Files.
 ### Setup
 Clone this Repository somewhere you can edit it easily:
 ```bash
-git clone https://git.informatik.fh-nuernberg.de/SpiegelMa/aux-config ~/Project/aux-config
+git clone https://git.kb-one.de/kb01/aux-config ~/Project/aux-config
 ```
 
 Check if your Hostname matches one of the [Hosts](#hosts) in the config.
@@ -59,12 +59,16 @@ sudo nixos-rebuild switch --flake .
 ### [HyperC](./systems/x86_64-linux/HyperC)
 Surface Pro 2017 Tablet
 
+User: [kb@HyperC](./homes/x86_64-linux/kb@HyperC)
+
 Cpu: Intel i5-7300U
 
 Ram: 8GB
 
-### [voloxo](./systems/x86_64-linux/voloxo)
+### [LoyAdjo](./systems/x86_64-linux/LoyAdjo)
 My Gaming Desktop
+
+User: [kb@LoyAdjo](./homes/x86_64-linux/kb@LoyAdjo)
 
 Cpu: AMD Ryzen 5 5600X
 

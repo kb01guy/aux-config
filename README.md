@@ -77,11 +77,20 @@ Ram: 32GB
 Gpu: NVIDIA GeForce GTX 1070
 
 ### [kb-games-01](./systems/x86_64-linux/kb-games-01)
-My KVM Server for Gameservers
+My KVM Server for Gameservers (wip)
 
 Cpu: AMD EPYC 7702P 64-Core (4 Cores)
 
 Ram: 16GB
+
+### [U3ncSovm](./systems/x86_64-linux/U3ncSovm)
+My NAS Server, currently under construction only as VM.
+
+Cpu: 3 Cores of Host
+
+Ram: 3GB of Host
+
+Build: `nixos-rebuild build-vm --flake .#U3ncSovm`
 
 ## License
 

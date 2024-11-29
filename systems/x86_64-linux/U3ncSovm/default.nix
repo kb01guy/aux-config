@@ -48,7 +48,7 @@
   # Enable NAS Functionality
   services.nas = {
     enable = true;
-    servers.audiobookshelf = true;
+    servers.audiobookshelf.enable = true;
   };
 
   # SSH and Mosh

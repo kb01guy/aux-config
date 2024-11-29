@@ -45,6 +45,12 @@
     git
   ];
 
+  # Enable NAS Functionality
+  services.nas = {
+    enable = true;
+    servers.audiobookshelf = true;
+  };
+
   # SSH and Mosh
   services.openssh = {
     enable = true;

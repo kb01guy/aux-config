@@ -92,6 +92,12 @@ Ram: 3GB of Host
 
 Build: `nixos-rebuild build-vm --flake .#U3ncSovm`
 
+Run VM:
+```bash
+export QEMU_NET_OPTS="hostfwd=tcp::443-:443"
+/nix/store/00your00hash00of00build999999999-nixos-vm/bin/run-U3ncSovm-vm
+```
+
 ## License
 
 [MIT © kB01](../LICENSE)

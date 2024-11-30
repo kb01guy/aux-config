@@ -152,6 +152,11 @@
     download-dir = "${config.services.transmission.home}/Torrents";
   };
 
+  services.protonmail-bridge = {
+    enable = true;
+    path = with pkgs; [ kdePackages.kwallet ];
+  };
+
   services.nix-serve = {
     enable = true;
     secretKeyFile = "/var/cache-HyperC-priv-key.pem";

@@ -67,6 +67,7 @@ in {
     # Development
     vscodium
     scrcpy
+    android-tools
     # Experiments
     # Gaming
     prismlauncher

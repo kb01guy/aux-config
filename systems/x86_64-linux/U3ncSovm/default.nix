@@ -28,6 +28,7 @@
   users.users.master = {
     initialPassword = "test";
     openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF82e+j7y8qsSvLn/DZuosvsH0S2EsHpqDkvZ8jiONm3 kb@LoyAdjo"
     ];
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.

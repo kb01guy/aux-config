@@ -20,9 +20,9 @@ in
     services.traefik.dynamicConfigOptions = {
       http.routers.audiobookshelf.entrypoints = "websecure";
       http.routers.audiobookshelf.tls = true;
-      http.routers.audiobookshelf.rule = "Host(`audiobookshelf.U3ncSovm`)";
+      http.routers.audiobookshelf.rule = "Host(`audiobookshelf.localhost`)";
       http.routers.audiobookshelf.service = "audiobookshelf";
-      services.audiobookshelf.loadBalancer.servers = [ { url = "http://localhost:63001"; } ];
+      services.audiobookshelf.loadBalancer.servers = [ { url = "http://localhost:63001/"; } ];
     };
   };
 }

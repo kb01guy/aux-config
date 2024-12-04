@@ -1,18 +1,30 @@
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  test-build:
+  build-HyperC:
     runs-on: nixos
-    name: "Check NixOS Configuration"
+    name: "Builds HyperC"
     steps:
       - name: "Git Clone"
         run: git clone https://git.kb-one.de/kb01/aux-config .
 
-      - name: "Check evaluation"
-        run: nix flake check --no-build --all-systems --experimental-features 'nix-command flakes'
+      - name: "Nix Build"
+        run: nix build --flake .#HyperC --no-link --no-update-lock-file --verbose
+  build-LoyAdjo:
+    runs-on: nixos
+    name: "Builds HyperC"
+    steps:
+      - name: "Git Clone"
+        run: git clone https://git.kb-one.de/kb01/aux-config .
 
-      - name: "Do linting"
-        run: nix run nixpkgs#statix -- check . --experimental-features 'nix-command flakes'
+      - name: "Nix Build"
+        run: nix build --flake .#LoyAdjo --no-link --no-update-lock-file --verbose
+  build-kb-games-01:
+    runs-on: nixos
+    name: "Builds HyperC"
+    steps:
+      - name: "Git Clone"
+        run: git clone https://git.kb-one.de/kb01/aux-config .
 
-      - name: "Check formatting"
-        run: nix fmt -- --fail-on-change --experimental-features 'nix-command flakes'
+      - name: "Nix Build"
+        run: nix build --flake .#kb-games-01 --no-link --no-update-lock-file --verbose

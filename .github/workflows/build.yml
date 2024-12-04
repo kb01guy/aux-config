@@ -1,30 +1,12 @@
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  build-HyperC:
+  flake-check:
     runs-on: nixos
-    name: "Builds HyperC"
+    name: "Check Nix Flake"
     steps:
       - name: "Git Clone"
         run: git clone https://git.kb-one.de/kb01/aux-config .
 
-      - name: "Nix Build"
-        run: nixos-rebuild build --flake .#HyperC --no-link --no-update-lock-file --verbose
-  build-LoyAdjo:
-    runs-on: nixos
-    name: "Builds HyperC"
-    steps:
-      - name: "Git Clone"
-        run: git clone https://git.kb-one.de/kb01/aux-config .
-
-      - name: "Nix Build"
-        run: nixos-rebuild build --flake .#LoyAdjo --no-link --no-update-lock-file --verbose
-  build-kb-games-01:
-    runs-on: nixos
-    name: "Builds HyperC"
-    steps:
-      - name: "Git Clone"
-        run: git clone https://git.kb-one.de/kb01/aux-config .
-
-      - name: "Nix Build"
-        run: nixos-rebuild build --flake .#kb-games-01 --no-link --no-update-lock-file --verbose
+      - name: "Check Nix Flake"
+        run: nix flake check

@@ -9,4 +9,4 @@ jobs:
         run: git clone https://git.kb-one.de/kb01/aux-config .
 
       - name: "Check Nix Flake"
-        run: nix flake check --extra-experimental-features nix-command,flake
+        run: nix flake check --extra-experimental-features 'nix-command flake'

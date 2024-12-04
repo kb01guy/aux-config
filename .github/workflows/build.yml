@@ -9,7 +9,7 @@ jobs:
         run: git clone https://git.kb-one.de/kb01/aux-config .
 
       - name: "Nix Build"
-        run: nix build --flake .#HyperC --no-link --no-update-lock-file --verbose
+        run: nixos-rebuild build --flake .#HyperC --no-link --no-update-lock-file --verbose
   build-LoyAdjo:
     runs-on: nixos
     name: "Builds HyperC"
@@ -18,7 +18,7 @@ jobs:
         run: git clone https://git.kb-one.de/kb01/aux-config .
 
       - name: "Nix Build"
-        run: nix build --flake .#LoyAdjo --no-link --no-update-lock-file --verbose
+        run: nixos-rebuild build --flake .#LoyAdjo --no-link --no-update-lock-file --verbose
   build-kb-games-01:
     runs-on: nixos
     name: "Builds HyperC"
@@ -27,4 +27,4 @@ jobs:
         run: git clone https://git.kb-one.de/kb01/aux-config .
 
       - name: "Nix Build"
-        run: nix build --flake .#kb-games-01 --no-link --no-update-lock-file --verbose
+        run: nixos-rebuild build --flake .#kb-games-01 --no-link --no-update-lock-file --verbose

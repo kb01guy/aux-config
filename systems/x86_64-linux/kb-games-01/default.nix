@@ -76,6 +76,9 @@
     servers.survival.enable = true;
   };
 
+  # Forgejo Runner
+  services.forgejo-runner.enable = true;
+
   services.nix-serve = {
     enable = true;
     secretKeyFile = "/var/cache-kb-games-01-priv-key.pem";
